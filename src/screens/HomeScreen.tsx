@@ -63,7 +63,7 @@ const HomeScreen = () => {
           <View className="absolute inset-0 items-center justify-center">
             <Text className="text-white text-4xl font-bold text-center px-6">Plan Your Next Adventure</Text>
             <TouchableOpacity className='bg-orange-500 px-6 py-2 rounded-full'>
-              <Text>Create new plan </Text>
+              <Text className="text-white font-semibold text-base">Create new plan </Text>
             </TouchableOpacity>
           </View>
         </View>
