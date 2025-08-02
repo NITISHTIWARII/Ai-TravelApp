@@ -5,6 +5,7 @@ const ProfileScreen = () => {
   return (
     <View>
       <Text>heelo user</Text>
+      <Text>Added </Text>
     </View>
   )
 }

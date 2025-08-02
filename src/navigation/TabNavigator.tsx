@@ -6,6 +6,8 @@ import {Ionicons} from '@expo/vector-icons'
 import HomeStack from './HomeStack'
 import GuideStack from './GuideStack'
 import ProfileScreen from '../screens/ProfileScreen'
+//Updated the bottom tabs
+
 
 const TabNavigator = () => {
     const Tab = createBottomTabNavigator()
