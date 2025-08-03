@@ -10,6 +10,9 @@ import React from "react";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import FeatureGuide from "../components/FeatureGuide";
+import PopularDestination from "../components/PopularDestination";
+import WeekendTrips from "../components/WeekendTrips";
 
 export type HomeStackParamList = {
   HomeMain: undefined;
@@ -66,6 +69,21 @@ const HomeScreen = () => {
               <Text className="text-white font-semibold text-base">Create new plan </Text>
             </TouchableOpacity>
           </View>
+        </View>
+        <View className="p-4">
+          <Text className="text-2xl font-semibold mb-4 ">Featured Guides from user </Text>
+        <FeatureGuide/>
+        </View>
+           <View className="p-4">
+          <Text className="text-2xl font-semibold mb-4 ">Popular Destination</Text>
+          <PopularDestination/>
+        
+        </View>
+         
+           <View className="p-4">
+          <Text className="text-2xl font-semibold mb-4 ">Weekend Trips</Text>
+          <WeekendTrips/>
+        
         </View>
       </ScrollView>
     </SafeAreaView>
