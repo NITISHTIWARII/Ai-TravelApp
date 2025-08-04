@@ -11,6 +11,8 @@ import React from "react";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "./HomeScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 type GuideScreenNavigationProp = NativeStackNavigationProp<HomeStackParamList>;
 
@@ -82,13 +84,13 @@ const places = [
   },
 ];
 const GuideScreen = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView className="flex-1 bg-white">
       <ScrollView
         className="flex-1 "
         contentContainerStyle={{ paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
-        
       >
         <View className="px-4 py-4 border-b border-gray-200">
           <Text className="text-2xl font-bold text-gray-800">
@@ -98,8 +100,13 @@ const GuideScreen = () => {
             Discover Best Places to visit in Karnataka{" "}
           </Text>
         </View>
-        {places.map((place,index) => (
-          <Pressable key={index} className="mx-4 mt-4 rounded-xl overflow-hidden shadow-sm" style={styles.card}>
+        {places.map((place, index) => (
+          <Pressable
+            key={index}
+            className="mx-4 mt-4 rounded-xl overflow-hidden border border-gray-400 "
+            style={styles.card}
+            onPress={() => navigation.navigate("GuideDetail", { place })}
+          >
             <ImageBackground
               source={{ uri: place.image }}
               className="w-full "
@@ -107,13 +114,40 @@ const GuideScreen = () => {
             >
               <View className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent " />
               <View className="p-4 flex-1 justify-end">
-                <Text className="text-black text-xl font-bold mb-2">{place?.name}</Text>
-                <Text className="text-black text-sm font-medium line-clamp-2">{place?.description}</Text>
+                <Text className="text-black text-xl font-bold mb-2">
+                  {place?.name}
+                </Text>
+                <Text className="text-black text-sm font-medium line-clamp-2">
+                  {place?.description}
+                </Text>
               </View>
             </ImageBackground>
 
-            <View>
-               
+            <View className="bg-white p-4">
+              <View className="flex-row items-center mb-2">
+                <Ionicons name="location-outline" size={16} color={"#FF5722"} />
+                <Text className="text-gray-800 text-sm font-medium ml-2">
+                  {place.attributes.location}
+                </Text>
+              </View>
+              <View className="flex-row items-center mb-2">
+                <Ionicons name="map-outline" size={16} color={"#FF5722"} />
+                <Text className="text-gray-800 text-sm font-medium ml-2">
+                  {place.attributes.type}
+                </Text>
+              </View>
+              <View className="flex-row items-center mb-2">
+                <Ionicons name="calendar-outline" size={16} color={"#FF5722"} />
+                <Text className="text-gray-800 text-sm font-medium ml-2">
+                  {place.attributes.bestTime}
+                </Text>
+              </View>
+              <View className="flex-row items-center mb-2">
+                <Ionicons name="star-outline" size={16} color={"#FF5722"} />
+                <Text className="text-gray-800 text-sm font-medium ml-2">
+                  {place.attributes.attractions.join(",")}
+                </Text>
+              </View>
             </View>
           </Pressable>
         ))}
@@ -125,12 +159,11 @@ const GuideScreen = () => {
 export default GuideScreen;
 
 const styles = StyleSheet.create({
-  image:
-  {
-    height:'60%'
+  image: {
+    height: "60%",
   },
-  card:{
-    height:Dimensions.get("window").height*0.5,
-    marginBottom:16
-  }
+  card: {
+    height: Dimensions.get("window").height * 0.5,
+    marginBottom: 16,
+  },
 });
