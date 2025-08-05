@@ -127,6 +127,27 @@ const GuideDetail = ({ route, navigation }: Props) => {
                 Location : {place.attributes.location}
               </Text>
             </View>
+
+            <View className="flex-row items-center mb-3">
+              <Ionicons name='map-outline' size={24} color='#FF5722'/>
+               <Text className="text-gray-800 text-base font-medium ml-3">
+                Type : {place.attributes.type}
+              </Text>
+            </View>
+            
+            <View className="flex-row items-center mb-3">
+              <Ionicons name='star-outline' size={24} color='#FF5722'/>
+               <Text className="text-gray-800 text-base font-medium ml-3">
+                Attractions  : {place.attributes.attractions.join(',')}
+              </Text>
+            </View>
+            
+            <View className="flex-row items-center mb-3">
+              <Ionicons name='cash-outline' size={24} color='#FF5722'/>
+               <Text className="text-gray-800 text-base font-medium ml-3">
+                Entry fee : {extraAttributes.entryFee}
+              </Text>
+            </View>
           </View>
         </View>
       </ScrollView>
