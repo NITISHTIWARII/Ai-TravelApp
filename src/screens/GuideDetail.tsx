@@ -116,7 +116,7 @@ const GuideDetail = ({ route, navigation }: Props) => {
               {place.description}
             </Text>
           </View>
-          
+
           <View className="border-t border-gray-200 pt-4 mb-6 ">
             <Text className="text-lg font-semibold text-gray-80 mb-3">
               Details
@@ -129,26 +129,51 @@ const GuideDetail = ({ route, navigation }: Props) => {
             </View>
 
             <View className="flex-row items-center mb-3">
-              <Ionicons name='map-outline' size={24} color='#FF5722'/>
-               <Text className="text-gray-800 text-base font-medium ml-3">
+              <Ionicons name="map-outline" size={24} color="#FF5722" />
+              <Text className="text-gray-800 text-base font-medium ml-3">
                 Type : {place.attributes.type}
               </Text>
             </View>
-            
+
             <View className="flex-row items-center mb-3">
-              <Ionicons name='star-outline' size={24} color='#FF5722'/>
-               <Text className="text-gray-800 text-base font-medium ml-3">
-                Attractions  : {place.attributes.attractions.join(',')}
+              <Ionicons name="star-outline" size={24} color="#FF5722" />
+              <Text className="text-gray-800 text-base font-medium ml-3">
+                Attractions : {place.attributes.attractions.join(",")}
               </Text>
             </View>
-            
+
             <View className="flex-row items-center mb-3">
-              <Ionicons name='cash-outline' size={24} color='#FF5722'/>
-               <Text className="text-gray-800 text-base font-medium ml-3">
+              <Ionicons name="cash-outline" size={24} color="#FF5722" />
+              <Text className="text-gray-800 text-base font-medium ml-3">
                 Entry fee : {extraAttributes.entryFee}
               </Text>
             </View>
           </View>
+
+          {itinerary.length > 0 && (
+            <View className="border-t border-gray-200 pt-4 mb-6 ">
+              <Text className="'text-lg font-semibold text-gra-800 mb-2">
+                Sugggested Itinearary
+              </Text>
+              {itinerary.map((item, index) => (
+                <View key={index} className="flex-row items-start mb-2">
+                  <Text className="text-800 items-start mb-2">•</Text>
+                  <Text className="text-800 items-start mb-2">{item}</Text>
+                </View>
+              ))}
+            </View>
+          )}
+
+          {extraAttributes.travelTips.map((index, item) => (
+            <View key={index} className="flex-row items-start mb-2">
+              <Text className="text-gray-800 text-base font-medium flex-1">
+                •
+              </Text>
+              <Text className="text-gray-800 text-base font-medium flex-1">
+                {item}
+              </Text>
+            </View>
+          ))}
         </View>
       </ScrollView>
     </SafeAreaView>

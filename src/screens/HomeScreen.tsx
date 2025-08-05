@@ -54,8 +54,7 @@ const HomeScreen = () => {
 
         <View className="border-b border-gray-200 mx-4" />
 
-        <View className="relative" >
-          
+        <View className="relative">
           <Image
             source={{
               uri: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
@@ -64,26 +63,32 @@ const HomeScreen = () => {
             resizeMode="cover"
           />
           <View className="absolute inset-0 items-center justify-center">
-            <Text className="text-white text-4xl font-bold text-center px-6">Plan Your Next Adventure</Text>
-            <TouchableOpacity className='bg-orange-500 px-6 py-2 rounded-full'>
-              <Text className="text-white font-semibold text-base">Create new plan </Text>
+            <Text className="text-white text-4xl font-bold text-center px-6">
+              Plan Your Next Adventure
+            </Text>
+            <TouchableOpacity className="bg-orange-500 px-6 py-2 rounded-full">
+              <Text className="text-white font-semibold text-base">
+                Create new plan{" "}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
         <View className="p-4">
-          <Text className="text-2xl font-semibold mb-4 ">Featured Guides from user </Text>
-        <FeatureGuide/>
+          <Text className="text-2xl font-semibold mb-4 ">
+            Featured Guides from user{" "}
+          </Text>
+          <FeatureGuide />
         </View>
-           <View className="p-4">
-          <Text className="text-2xl font-semibold mb-4 ">Popular Destination</Text>
-          <PopularDestination/>
-        
+        <View className="p-4">
+          <Text className="text-2xl font-semibold mb-4 ">
+            Popular Destination
+          </Text>
+          <PopularDestination />
         </View>
-         
-           <View className="p-4">
+
+        <View className="p-4">
           <Text className="text-2xl font-semibold mb-4 ">Weekend Trips</Text>
-          <WeekendTrips/>
-        
+          <WeekendTrips />
         </View>
       </ScrollView>
     </SafeAreaView>
