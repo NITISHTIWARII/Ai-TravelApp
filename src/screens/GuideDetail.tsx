@@ -157,16 +157,19 @@ const GuideDetail = ({ route, navigation }: Props) => {
               </Text>
               {itinerary.map((item, index) => (
                 <View key={index} className="flex-row items-start mb-2">
-                  <Text className="text-800 items-start mb-2">•</Text>
+                  <Text className="text-800 items-start mb-2 mr-2">•</Text>
                   <Text className="text-800 items-start mb-2">{item}</Text>
                 </View>
               ))}
             </View>
           )}
 
-          {extraAttributes.travelTips.map((index, item) => (
+         {extraAttributes.travelTips.length>0 && (
+          <View className="border-t border-gray-200 pt-4 ">
+            <Text className="text-lg font-semibold text-gray-800 mb-3">Travel tips</Text>
+            {extraAttributes.travelTips.map((item,index) => (
             <View key={index} className="flex-row items-start mb-2">
-              <Text className="text-gray-800 text-base font-medium flex-1">
+              <Text className="text-gray-800 text-base font-medium mr-2">
                 •
               </Text>
               <Text className="text-gray-800 text-base font-medium flex-1">
@@ -174,6 +177,8 @@ const GuideDetail = ({ route, navigation }: Props) => {
               </Text>
             </View>
           ))}
+            </View>
+         )}
         </View>
       </ScrollView>
     </SafeAreaView>
